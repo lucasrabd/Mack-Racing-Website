@@ -20,16 +20,6 @@ const Hero = () => {
         <p>Excelência em Engenharia na Fórmula SAE Brasil</p>
         <div className="btn-group">
           <a
-            href="/sobre"
-            className="btn primary"
-            onClick={(e) => {
-              e.preventDefault();
-              navigateTo('/sobre');
-            }}
-          >
-            Saiba Mais
-          </a>
-          <a
             href="/contato"
             className="btn secondary"
             onClick={(e) => {
@@ -37,7 +27,7 @@ const Hero = () => {
               navigateTo('/contato');
             }}
           >
-            Junte‑se à Equipe
+            Entre em Contato
           </a>
         </div>
       </div>

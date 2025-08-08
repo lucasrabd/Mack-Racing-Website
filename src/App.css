@@ -250,15 +250,7 @@ main {
   color: var(--color-text);
 }
 
-.btn.secondary {
-  background: transparent;
-  color: var(--color-primary);
-}
 
-.btn.secondary:hover {
-  background: var(--color-primary);
-  color: var(--color-text);
-}
 
 /* Section base styles */
 section {
@@ -611,4 +603,49 @@ footer a:hover svg {
 .footer-links a:hover,
 .footer-contact a:hover {
   color: var(--color-primary);
+}
+
+/* Backdrop quando o menu mobile está aberto */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 998; /* a .nav deve ficar acima */
+}
+
+/* Mobile nav ajustes */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    transition: transform var(--transition-fast) ease;
+    z-index: 999; /* acima do backdrop */
+  }
+
+  nav.open {
+    transform: translateY(0);
+  }
+}
+
+/* Botão “Entre em Contato” na CTA */
+.cta-section .btn.primary {
+  background: #ffffff;
+  color: var(--color-primary);
+  border-color: #ffffff;
+}
+
+.cta-section .btn.primary:hover {
+  background: var(--color-primary-light);
+  color: #fff;
+}
+
+.cta-section .btn-group {
+  justify-content: center;
 }

@@ -24,17 +24,16 @@ const About = () => {
             <strong>Cayo&nbsp;Vinicius&nbsp;Rodrigues</strong>. Trabalhamos de forma interdisciplinar, englobando áreas como
             mecânica, elétrica, eletrônica e gestão de projetos para desenvolver um veículo competitivo.
           </p>
-          {/* Link to team page in multi‑page site. Use onClick to navigate without reload. */}
           <a
-            href="/equipe"
+            href="/contato"
             className="btn secondary"
             onClick={(e) => {
               e.preventDefault();
-              window.history.pushState({}, "", '/equipe');
+              window.history.pushState({}, "", '/contato');
               window.dispatchEvent(new PopStateEvent('popstate'));
             }}
           >
-            Conheça a Equipe
+            Entre em Contato
           </a>
         </div>
       </div>

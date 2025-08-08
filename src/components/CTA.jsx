@@ -18,17 +18,7 @@ const CTA = () => {
         paixão por engenharia pode fazer a diferença!
       </p>
       <div className="btn-group">
-        {/* Use onClick to prevent full page reload and navigate via the custom router */}
-        <a
-          href="/equipe"
-          className="btn secondary"
-          onClick={(e) => {
-            e.preventDefault();
-            navigateTo('/equipe');
-          }}
-        >
-          Conheça a Equipe
-        </a>
+        {/* Only "Entre em Contato" button remains */}
         <a
           href="/contato"
           className="btn primary"
