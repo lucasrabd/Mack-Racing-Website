@@ -1,10 +1,11 @@
 import React from 'react';
 
+// Exemplo: adicione um campo 'photo' para cada membro, com imagem de boa resolução
 const members = [
-  { name: 'Thierry Caparroz', role: 'Líder de Equipe' },
-  { name: 'Igor Garcez', role: 'Líder de Equipe' },
-  { name: 'Cayo Vinicius Rodrigues', role: 'Líder de Equipe' },
-  { name: 'Prof. Dr. Filipe Fabian Buscariolo', role: 'Orientador' },
+  { name: 'Thierry Caparroz', role: 'Líder de Equipe', photo: '/assets/team/thierry.jpg' },
+  { name: 'Igor Garcez', role: 'Líder de Equipe', photo: '/assets/team/igor.jpg' },
+  { name: 'Cayo Vinicius Rodrigues', role: 'Líder de Equipe', photo: '/assets/team/cayo.jpg' },
+  { name: 'Prof. Dr. Filipe Fabian Buscariolo', role: 'Orientador', photo: '/assets/team/filipe.jpg' },
 ];
 
 /**
@@ -17,16 +18,22 @@ const Team = () => {
       <div className="team-grid">
         {members.map((member, index) => (
           <div className="team-card" key={index}>
-            <div className="avatar"></div>
+            {/* Use img com avatar-img */}
+            <img
+              src={member.photo}
+              alt={member.name}
+              className="avatar-img"
+              loading="lazy"
+              width={80}
+              height={80}
+            />
             <h3>{member.name}</h3>
             <p>{member.role}</p>
           </div>
         ))}
       </div>
       <p className="team-note">
-        Nossa equipe é formada por dezenas de estudantes de diversas engenharias e períodos. Trabalhamos juntos para
-        projetar, fabricar e testar nosso veículo, criando uma experiência que prepara os membros para os desafios
-        da indústria automobilística e de mobilidade.
+        Somos movidos por sonhos, desafios e pelo desejo de fazer a diferença. Nossa equipe reúne talentos de diversas engenharias e períodos, unidos pela paixão por inovação e velocidade. Juntos, aprendemos, crescemos e mostramos que, com dedicação e trabalho em equipe, podemos ir além dos nossos limites e conquistar grandes resultados.
       </p>
     </section>
   );

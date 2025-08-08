@@ -17,7 +17,9 @@ const Hero = () => {
     <section id="home" className="hero">
       <div className="hero-content">
         <h1>Mack Racing</h1>
-        <p>Excelência em Engenharia na Fórmula SAE Brasil</p>
+        <p>
+          Onde a paixão pela engenharia acelera sonhos. Junte-se a nós e faça parte de uma equipe que transforma ideias em velocidade, inovação e conquistas!
+        </p>
         <div className="btn-group">
           <a
             href="/contato"

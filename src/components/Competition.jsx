@@ -6,20 +6,25 @@ import React from 'react';
 const Competition = () => {
   return (
     <section id="competicao" className="section competition-section">
-      <h2 className="section-title">Competição Fórmula SAE</h2>
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <p style={{ marginBottom: '1rem', color: 'var(--color-muted)' }}>
-          A <strong>Fórmula SAE Brasil</strong> é uma competição estudantil que permite a aplicação prática dos
-          conhecimentos de engenharia. Ela desafia equipes universitárias a desenvolver um projeto completo e
-          construir um carro tipo Fórmula【142413071570534†L162-L178】. Criada em 2004, a competição tem crescido a cada ano
-          e as melhores equipes representam o Brasil em etapas internacionais nos Estados Unidos.
+      <h2 className="section-title" style={{ fontSize: '2.3rem', marginBottom: '1.5rem' }}>
+        Competição <span style={{ color: 'var(--color-primary)' }}>Fórmula SAE</span>
+      </h2>
+      <div style={{
+        maxWidth: '700px',
+        margin: '0 auto',
+        background: 'rgba(255,255,255,0.01)',
+        borderRadius: '12px',
+        padding: '2rem 1.5rem',
+        boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)'
+      }}>
+        <p style={{ marginBottom: '1.5rem', color: 'var(--color-text)', fontSize: '1.15rem', textAlign: 'center' }}>
+          <strong style={{ color: 'var(--color-primary)' }}>Fórmula SAE Brasil</strong> é onde a paixão pela engenharia encontra a adrenalina das pistas. 
+          Estudantes de todo o país se unem para projetar, construir e competir com carros de alto desempenho, vivendo desafios reais e experiências inesquecíveis.
         </p>
-        <p style={{ color: 'var(--color-muted)' }}>
-          Durante três dias de evento, os carros passam por provas estáticas e dinâmicas que avaliam a performance
-          na pista, assim como a qualidade dos projetos, custos e estratégias de marketing【142413071570534†L162-L178】. Meses antes, os
-          estudantes enviam relatórios técnicos ao comitê organizador contendo detalhes do projeto. Essa experiência
-          aproxima os alunos do mercado de trabalho, estimulando o espírito de equipe e a busca por soluções
-          criativas【142413071570534†L162-L178】.
+        <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem', textAlign: 'center' }}>
+          Durante três dias intensos, equipes mostram criatividade, dedicação e espírito de equipe em provas que vão além da velocidade: estratégia, inovação e trabalho coletivo são essenciais para cruzar a linha de chegada. 
+          <br /><br />
+          Venha fazer parte dessa jornada e sinta a emoção de competir entre os melhores!
         </p>
       </div>
     </section>

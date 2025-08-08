@@ -10,7 +10,7 @@ const Project = () => {
       <div className="project-grid">
         <div className="project-image" aria-label="Ilustração abstrata de mecânico trabalhando"></div>
         <div className="project-details">
-          <h3>MR‑01 Projeto Inicial</h3>
+          <h3>MR‑01: Nosso Sonho em Movimento</h3>
           <ul>
             <li><strong>Status:</strong> Em desenvolvimento</li>
             <li><strong>Previsão:</strong> Início de 2026</li>

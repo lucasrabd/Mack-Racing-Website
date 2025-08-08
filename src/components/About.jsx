@@ -13,16 +13,10 @@ const About = () => {
         <div className="about-text">
           <h3>Nossa Missão</h3>
           <p>
-            Olá! Somos a <strong>Mack&nbsp;Racing</strong>, a liga acadêmica de Fórmula SAE da Universidade Presbiteriana
-            Mackenzie. Nosso objetivo é construir um protótipo de Fórmula e participar dos campeonatos que ocorrem
-            anualmente entre as universidades de todo país【246194708444952†L4689-L4708】. Através dos conhecimentos de
-            engenharia e de diversos softwares, aproximamos ainda mais o automobilismo da vida acadêmica.
+            Somos a <strong>Mack Racing</strong>, a liga acadêmica de Fórmula SAE da Universidade Presbiteriana Mackenzie. Mais do que construir carros, construímos futuros. Nosso propósito é unir estudantes apaixonados por engenharia, inovação e automobilismo para criar experiências transformadoras dentro e fora das pistas.
           </p>
           <p>
-            A equipe é orientada pelo <strong>Prof.&nbsp;Dr.&nbsp;Filipe&nbsp;Fabian&nbsp;Buscariolo</strong> e atualmente liderada
-            pelos discentes <strong>Thierry&nbsp;Caparroz</strong>, <strong>Igor&nbsp;Garcez</strong> e
-            <strong>Cayo&nbsp;Vinicius&nbsp;Rodrigues</strong>. Trabalhamos de forma interdisciplinar, englobando áreas como
-            mecânica, elétrica, eletrônica e gestão de projetos para desenvolver um veículo competitivo.
+            Orientados pelo <strong>Prof.&nbsp;Dr.&nbsp;Filipe&nbsp;Fabian&nbsp;Buscariolo</strong> e liderados por <strong>Thierry&nbsp;Caparroz</strong>, <strong>Igor&nbsp;Garcez</strong> e <strong>Cayo&nbsp;Vinicius&nbsp;Rodrigues</strong>, acreditamos que o trabalho em equipe, a criatividade e a busca por excelência são o combustível para grandes conquistas. Aqui, cada desafio é uma oportunidade de aprender, crescer e acelerar rumo ao futuro.
           </p>
           <a
             href="/contato"

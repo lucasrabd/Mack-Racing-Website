@@ -14,8 +14,7 @@ const CTA = () => {
     <section className="cta-section">
       <h2>Faça Parte da Nossa Jornada</h2>
       <p>
-        Junte-se a nós na construção do primeiro carro de Fórmula SAE da Universidade Presbiteriana Mackenzie. Sua
-        paixão por engenharia pode fazer a diferença!
+        Venha acelerar conosco! Aqui, você encontra um ambiente de aprendizado, amizade e superação. Ajude a construir o primeiro carro de Fórmula SAE da Mackenzie e deixe sua marca na história. Sua paixão pode ser o diferencial que vai nos levar ainda mais longe!
       </p>
       <div className="btn-group">
         {/* Only "Entre em Contato" button remains */}

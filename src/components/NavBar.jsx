@@ -39,26 +39,16 @@ const NavBar = ({ navigate }) => {
     };
   }, [menuOpen]);
 
-  // Fecha com ESC e clique fora
+  // Fecha com ESC
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') setMenuOpen(false);
     };
-    const onClickOutside = (e) => {
-      if (!menuOpen) return;
-      const nav = navRef.current;
-      const btn = btnRef.current;
-      if (nav && !nav.contains(e.target) && btn && !btn.contains(e.target)) {
-        setMenuOpen(false);
-      }
-    };
     document.addEventListener('keydown', onKey);
-    document.addEventListener('click', onClickOutside);
     return () => {
       document.removeEventListener('keydown', onKey);
-      document.removeEventListener('click', onClickOutside);
     };
-  }, [menuOpen]);
+  }, []);
 
   const handleNavigate = (href) => {
     setMenuOpen(false);
@@ -71,49 +61,56 @@ const NavBar = ({ navigate }) => {
   };
 
   return (
-    <header className="header">
-      <div className="logo-container">
-        <img src={logo} alt="Logo Mack Racing" className="logo" />
-        <span>Mack&nbsp;Racing</span>
-      </div>
+    <>
+      <header className="header">
+        <div className="logo-container">
+          <img src={logo} alt="Logo Mack Racing" className="logo" />
+          <span>Mack&nbsp;Racing</span>
+        </div>
 
-      {/* backdrop só no mobile quando aberto */}
-      {menuOpen && <div className="nav-backdrop" aria-hidden="true" />}
+        <nav
+          id="site-nav"
+          ref={navRef}
+          className={`nav ${menuOpen ? 'open' : ''}`}
+          aria-label="Navegação principal"
+        >
+          {links.map((link) => (
+            <a
+              key={link.to}
+              href={link.to}
+              className={currentPath === link.to ? 'active' : ''}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigate(link.to);
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
 
-      <nav
-        id="site-nav"
-        ref={navRef}
-        className={`nav ${menuOpen ? 'open' : ''}`}
-        aria-label="Navegação principal"
-      >
-        {links.map((link) => (
-          <a
-            key={link.to}
-            href={link.to}
-            className={currentPath === link.to ? 'active' : ''}
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavigate(link.to);
-            }}
-          >
-            {link.label}
-          </a>
-        ))}
-      </nav>
-
-      <button
-        ref={btnRef}
-        className={`hamburger ${menuOpen ? 'open' : ''}`}
-        onClick={() => setMenuOpen((v) => !v)}
-        aria-label="Abrir menu"
-        aria-controls="site-nav"
-        aria-expanded={menuOpen}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
-    </header>
+        <button
+          ref={btnRef}
+          className={`hamburger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Abrir menu"
+          aria-controls="site-nav"
+          aria-expanded={menuOpen}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </header>
+      {/* Only close menu when clicking the backdrop */}
+      {menuOpen && (
+        <div
+          className="nav-backdrop"
+          aria-hidden="true"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+    </>
   );
 };
 
