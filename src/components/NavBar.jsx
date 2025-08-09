@@ -63,7 +63,11 @@ const NavBar = ({ navigate }) => {
   return (
     <>
       <header className="header">
-        <div className="logo-container">
+        <div
+          className="logo-container"
+          onClick={() => navigate('/')}
+          style={{ cursor: 'pointer' }}
+        >
           <img src={logo} alt="Logo Mack Racing" className="logo" />
           <span>Mack&nbsp;Racing</span>
         </div>
@@ -74,19 +78,34 @@ const NavBar = ({ navigate }) => {
           className={`nav ${menuOpen ? 'open' : ''}`}
           aria-label="Navegação principal"
         >
-          {links.map((link) => (
-            <a
-              key={link.to}
-              href={link.to}
-              className={currentPath === link.to ? 'active' : ''}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavigate(link.to);
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) =>
+            link.to === currentPath ? (
+              <span
+                key={link.to}
+                className="active"
+                style={{
+                  color: 'var(--color-primary)',
+                  fontWeight: 700,
+                  cursor: 'default',
+                  borderBottom: '2px solid var(--color-primary)',
+                  paddingBottom: 2,
+                }}
+              >
+                {link.label}
+              </span>
+            ) : link.to === '/contato' && currentPath === '/contato' ? null : (
+              <a
+                key={link.to}
+                href={link.to}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigate(link.to);
+                }}
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </nav>
 
         <button
@@ -115,3 +134,4 @@ const NavBar = ({ navigate }) => {
 };
 
 export default NavBar;
+

@@ -8,9 +8,11 @@ import EquipePage from './pages/EquipePage.jsx';
 import ProjetosPage from './pages/ProjetosPage.jsx';
 import CompeticaoPage from './pages/CompeticaoPage.jsx';
 import ContatoPage from './pages/ContatoPage.jsx';
+import Loader from './components/Loader.jsx';
 
 function App() {
   const [path, setPath] = useState(typeof window !== 'undefined' ? window.location.pathname : '/');
+  const [loading, setLoading] = useState(false);
 
   // Update path when browser navigation occurs (back/forward)
   useEffect(() => {
@@ -18,6 +20,13 @@ function App() {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
+
+  // Simula carregamento de página
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 700);
+    return () => clearTimeout(timer);
+  }, [path]);
 
   // Navigate to a new path without reloading the page
   const navigate = (to) => {
@@ -52,8 +61,8 @@ function App() {
   return (
     <>
       <NavBar navigate={navigate} />
-      <main>
-        {PageComponent}
+      <main style={{ minHeight: '60vh', display: loading ? 'flex' : 'block', alignItems: 'center', justifyContent: 'center' }}>
+        {loading ? <Loader /> : PageComponent}
       </main>
       <Footer />
     </>
