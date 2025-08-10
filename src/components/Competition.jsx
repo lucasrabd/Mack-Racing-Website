@@ -5,6 +5,11 @@ const Competition = () => {
       <h2 className="section-title" style={{ fontSize: '2.3rem', textAlign: 'center', color: 'var(--color-primary, #9b1c31)', marginBottom: '1.2rem' }}>
         Competição & Eventos
       </h2>
+      <div style={{ maxWidth: 700, margin: '0 auto', marginBottom: 32, textAlign: 'center', color: '#ddd', fontSize: '1.08rem', lineHeight: 1.6 }}>
+        Fundados em 2018, somos a equipe oficial de Formula SAE da Universidade Presbiteriana Mackenzie.<br/>
+        O Mack Racing Team é composto por membros dos mais diversos cursos da nossa Escola de Engenharia.<br/>
+        Nosso objetivo é desenvolver carros de alta performance a fim de competir nos torneios de Formula SAE Brasil a fora!
+      </div>
       <div style={{ textAlign: 'center', marginBottom: 32 }}>
         <h3 style={{ color: '#9b1c31', fontWeight: 700, fontSize: '1.3rem', marginBottom: 6 }}>ECPA - Sport Piracicabano Automobile Club</h3>
         <span style={{ color: '#bbb', fontSize: '1rem' }}>02/08/2025</span>

@@ -420,7 +420,7 @@ section {
 .about-image {
   width: 100%;
   height: 100%;
-  background-image: url("./assets/about-bg.png");
+  /* background-image removido para não sobrescrever a imagem do React */
   background-size: cover;
   background-position: center;
   border-radius: 8px;
@@ -466,7 +466,7 @@ section {
 .project-image {
   width: 100%;
   height: 100%;
-  background-image: url("./assets/project-bg.png");
+  background-image: url("./assets/project-bg.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 8px;

@@ -3,10 +3,10 @@ import React from 'react';
 // Stats section summarising key facts about the team.  
 // Data values are defined here for ease of modification.
 const stats = [
-  { value: '2025', label: 'Ano de Fundação' },
+  { value: '2018', label: 'Ano de Fundação' },
   { value: '15+', label: 'Membros da Equipe' },
   { value: '1', label: 'Carro em Desenvolvimento' },
-  { value: '2026', label: 'Primeira Competição' },
+  { value: '2019', label: 'Primeira Competição' },
 ];
 
 const Stats = () => {
