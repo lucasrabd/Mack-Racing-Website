@@ -26,9 +26,10 @@ const About = () => {
         ></div>
         <div className="about-text">
           <p>
-            Fundada em 2018, a <b>Mack Racing</b> é a equipe oficial de Formula SAE da Universidade Presbiteriana Mackenzie.<br/>
+            A <b>Mack Racing</b> é a equipe oficial de Formula SAE da Universidade Presbiteriana Mackenzie.<br/>
             Somos movidos por inovação, tecnologia e paixão pelo automobilismo universitário.<br/>
-            Nossa missão é desenvolver carros de alta performance, promovendo aprendizado prático, trabalho em equipe e excelência em engenharia.
+            Nossa missão é desenvolver carros de alta performance, promovendo aprendizado prático, trabalho em equipe e excelência em engenharia.<br/>
+            <span style={{color: 'var(--color-muted)'}}>Estamos nos preparando para nossa estreia na competição Formula SAE Brasil!</span>
           </p>
           <h3 style={{color: 'var(--color-primary)', margin: '1.2rem 0 0.5rem'}}>Como somos divididos?</h3>
           <ul style={{marginBottom: '1.2rem', color: 'var(--color-muted)', fontSize: '1rem', paddingLeft: 18}}>

@@ -6,7 +6,7 @@ const stats = [
   { value: '2018', label: 'Ano de Fundação' },
   { value: '15+', label: 'Membros da Equipe' },
   { value: '1', label: 'Carro em Desenvolvimento' },
-  { value: '2019', label: 'Primeira Competição' },
+  { value: 'Em breve', label: 'Primeira Competição' },
 ];
 
 const Stats = () => {
