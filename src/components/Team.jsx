@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Exemplo: adicione um campo 'photo' para cada membro, com imagem de boa resolução
 const members = [
   { name: 'Thierry Caparroz', role: 'Líder de Equipe', photo: '/assets/team/thierry.jpg' },
   { name: 'Igor Garcez', role: 'Líder de Equipe', photo: '/assets/team/igor.jpg' },
@@ -8,9 +7,6 @@ const members = [
   { name: 'Prof. Dr. Filipe Fabian Buscariolo', role: 'Orientador', photo: '/assets/team/filipe.jpg' },
 ];
 
-/**
- * Team section listing the core members of the team along with a note about the broader group.  
- */
 const Team = () => {
   return (
     <section id="equipe" className="section team-section">
@@ -18,7 +14,6 @@ const Team = () => {
       <div className="team-grid">
         {members.map((member, index) => (
           <div className="team-card" key={index}>
-            {/* Use img com avatar-img */}
             <img
               src={member.photo}
               alt={member.name}

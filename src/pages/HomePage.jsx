@@ -5,8 +5,6 @@ import About from '../components/About.jsx';
 import Competition from '../components/Competition.jsx';
 import Project from '../components/Project.jsx';
 import CTA from '../components/CTA.jsx';
-
-// Home page composed of the main sections. This page will be rendered at '/' route.
 const HomePage = () => {
   return (
     <>

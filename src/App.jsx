@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
-// Page components
 import HomePage from './pages/HomePage.jsx';
 import SobrePage from './pages/SobrePage.jsx';
 import EquipePage from './pages/EquipePage.jsx';
@@ -9,6 +8,7 @@ import ProjetosPage from './pages/ProjetosPage.jsx';
 import CompeticaoPage from './pages/CompeticaoPage.jsx';
 import ContatoPage from './pages/ContatoPage.jsx';
 import Loader from './components/Loader.jsx';
+import CarroPage from './pages/CarroPage.jsx';
 
 function App() {
   const [path, setPath] = useState(typeof window !== 'undefined' ? window.location.pathname : '/');
@@ -52,6 +52,9 @@ function App() {
       break;
     case '/contato':
       PageComponent = <ContatoPage />;
+      break;
+    case '/carro':
+      PageComponent = <CarroPage />;
       break;
     default:
       PageComponent = <HomePage />;

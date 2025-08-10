@@ -1,6 +1,4 @@
 import React, { useMemo, useState } from 'react';
-
-// Import das fotos padronizadas
 import membro_01 from '../assets/fotos/membros/membro_01.jpg';
 import membro_02 from '../assets/fotos/membros/membro_02.jpg';
 import membro_03 from '../assets/fotos/membros/membro_03.jpg';
@@ -57,7 +55,7 @@ const EquipePage = () => {
 
   return (
     <section className="section team-section" style={{ paddingTop: '2rem' }}>
-      {/* Container com título, texto e filtros centralizados */}
+      
       <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
         <h2 className="section-title" style={{ marginBottom: '1rem' }}>Nossa Equipe</h2>
 
@@ -105,7 +103,7 @@ const EquipePage = () => {
         </div>
       </div>
 
-      {/* Grid de membros */}
+      
       <div className="team-grid">
         {filtered.map((m, idx) => (
           <div className="team-card" key={idx}>
