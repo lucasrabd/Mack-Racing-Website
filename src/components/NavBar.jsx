@@ -121,7 +121,7 @@ const NavBar = ({ navigate }) => {
           <span />
         </button>
       </header>
-      {/* Only close menu when clicking the backdrop */}
+      
       {menuOpen && (
         <div
           className="nav-backdrop"

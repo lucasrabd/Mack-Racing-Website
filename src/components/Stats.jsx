@@ -1,7 +1,6 @@
 import React from 'react';
 
-// Stats section summarising key facts about the team.  
-// Data values are defined here for ease of modification.
+
 const stats = [
   { value: '2018', label: 'Ano de Fundação' },
   { value: '15+', label: 'Membros da Equipe' },

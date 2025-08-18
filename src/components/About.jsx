@@ -2,10 +2,7 @@
 import React from 'react';
 import equipeFoto from '../assets/project-bg.jpg';
 
-/**
- * About section describing the Mack Racing team.  
- * Features an image illustrating engineering collaboration and a textual narrative.  
- */
+
 const About = () => {
   return (
     <section id="sobre" className="section about-section">

@@ -1,8 +1,6 @@
 import React from 'react';
 
-/**
- * Project section showcasing the first race car project MP4/1.  
- */
+
 const Project = () => {
   return (
     <section id="projeto" className="section project-section">
