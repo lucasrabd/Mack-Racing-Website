@@ -14,7 +14,6 @@ function App() {
   const [path, setPath] = useState(typeof window !== 'undefined' ? window.location.pathname : '/');
   const [loading, setLoading] = useState(false);
 
-  // Update path when browser navigation occurs (back/forward)
   useEffect(() => {
     const handlePopState = () => setPath(window.location.pathname);
     window.addEventListener('popstate', handlePopState);
@@ -28,7 +27,6 @@ function App() {
     return () => clearTimeout(timer);
   }, [path]);
 
-  // Navigate to a new path without reloading the page
   const navigate = (to) => {
     if (to !== path) {
       window.history.pushState({}, '', to);
