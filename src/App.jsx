@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
 import HomePage from './pages/HomePage.jsx';
@@ -7,63 +8,37 @@ import EquipePage from './pages/EquipePage.jsx';
 import ProjetosPage from './pages/ProjetosPage.jsx';
 import CompeticaoPage from './pages/CompeticaoPage.jsx';
 import ContatoPage from './pages/ContatoPage.jsx';
-import Loader from './components/Loader.jsx';
 import CarroPage from './pages/CarroPage.jsx';
+import Loader from './components/Loader.jsx';
 
 function App() {
-  const [path, setPath] = useState(typeof window !== 'undefined' ? window.location.pathname : '/');
-  const [loading, setLoading] = useState(false);
+  const location = useLocation();
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const handlePopState = () => setPath(window.location.pathname);
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
-
-  // Simula carregamento de página
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => setLoading(false), 700);
     return () => clearTimeout(timer);
-  }, [path]);
-
-  const navigate = (to) => {
-    if (to !== path) {
-      window.history.pushState({}, '', to);
-      setPath(to);
-    }
-  };
-
-  let PageComponent;
-  switch (path) {
-    case '/sobre':
-      PageComponent = <SobrePage />;
-      break;
-    case '/equipe':
-      PageComponent = <EquipePage />;
-      break;
-    case '/projetos':
-      PageComponent = <ProjetosPage />;
-      break;
-    case '/competicao':
-      PageComponent = <CompeticaoPage />;
-      break;
-    case '/contato':
-      PageComponent = <ContatoPage />;
-      break;
-    case '/carro':
-      PageComponent = <CarroPage />;
-      break;
-    default:
-      PageComponent = <HomePage />;
-      break;
-  }
+  }, [location.pathname]);
 
   return (
     <>
-      <NavBar navigate={navigate} />
-      <main style={{ minHeight: '60vh', display: loading ? 'flex' : 'block', alignItems: 'center', justifyContent: 'center' }}>
-        {loading ? <Loader /> : PageComponent}
+      <NavBar />
+      <main className={`main-content${loading ? ' is-loading' : ''}`}>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/sobre" element={<SobrePage />} />
+            <Route path="/equipe" element={<EquipePage />} />
+            <Route path="/projetos" element={<ProjetosPage />} />
+            <Route path="/competicao" element={<CompeticaoPage />} />
+            <Route path="/contato" element={<ContatoPage />} />
+            <Route path="/carro" element={<CarroPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        )}
       </main>
       <Footer />
     </>

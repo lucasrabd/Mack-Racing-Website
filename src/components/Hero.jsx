@@ -1,10 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
-  const navigateTo = (path) => {
-    window.history.pushState({}, "", path);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  };
+  const navigate = useNavigate();
 
   return (
     <section id="home" className="hero">
@@ -14,16 +12,13 @@ const Hero = () => {
           Onde a paixão pela engenharia acelera sonhos. Junte-se a nós e faça parte de uma equipe que transforma ideias em velocidade, inovação e conquistas!
         </p>
         <div className="btn-group">
-          <a
-            href="/contato"
-            className="btn secondary"
-            onClick={(e) => {
-              e.preventDefault();
-              navigateTo('/contato');
-            }}
-          >
-            Entre em Contato
-          </a>
+        <button
+          type="button"
+          className="btn secondary"
+          onClick={() => navigate('/contato')}
+        >
+          Entre em Contato
+        </button>
         </div>
       </div>
     </section>

@@ -1,7 +1,9 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 const Project = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="projeto" className="section project-section">
       <h2 className="section-title">Projeto em Destaque</h2>
@@ -15,17 +17,13 @@ const Project = () => {
             <li><strong>Meta de Peso:</strong> &lt;= 300&nbsp;kg</li>
             <li><strong>Primeira Competição:</strong> SAE Brasil 2026</li>
           </ul>
-          <a
-            href="/carro"
-            className="btn secondary"
-            onClick={(e) => {
-              e.preventDefault();
-              window.history.pushState({}, "", '/carro');
-              window.dispatchEvent(new PopStateEvent('popstate'));
-            }}
+          <button
+            type="button"
+            className="btn secondary project-action"
+            onClick={() => navigate('/carro')}
           >
             Acompanhe o Desenvolvimento
-          </a>
+          </button>
         </div>
       </div>
     </section>
