@@ -928,3 +928,26 @@ footer a:hover svg {
 }
 
 .gallery-root { width: 100%; }
+
+.event-post {
+  padding: 1.25rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.event-post + .event-post {
+  margin-top: 1rem;
+}
+
+.event-post img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .event-post { padding: 1rem; }
+}
