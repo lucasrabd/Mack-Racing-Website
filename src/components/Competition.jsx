@@ -1,4 +1,3 @@
-
 const Competition = () => {
   return (
     <section id="competicao" className="section competition-section" style={{ background: 'rgba(255,255,255,0.01)', borderRadius: 18, boxShadow: '0 2px 24px 0 rgba(0,0,0,0.10)', padding: '2.5rem 1.5rem', maxWidth: 900, margin: '0 auto', marginTop: 32 }}>
@@ -28,6 +27,22 @@ const Competition = () => {
           <video src={require('../assets/Vídeo do WhatsApp de 2025-08-07 à(s) 09.25.21_068dae82.mp4')} controls style={{ width: 260, borderRadius: 10, boxShadow: '0 2px 12px 0 rgba(0,0,0,0.10)' }} />
         </div>
       </div>
+
+      <div style={{ maxWidth: 700, margin: '0 auto', marginBottom: 32, textAlign: 'center', color: '#ddd', fontSize: '1.08rem', lineHeight: 1.6 }}>
+        <h3 style={{ color: '#9b1c31', fontWeight: 700, fontSize: '1.3rem', marginBottom: 6 }}>Visita à Formula FEI Racing Team</h3>
+        <span style={{ color: '#bbb', fontSize: '1rem' }}>25/10/2025</span>
+        <p style={{ color: '#ddd', margin: '1rem auto 1.5rem', maxWidth: 600 }}>
+          Neste último sábado (25/10) a Mack Racing foi convidada pela Formula FEI Racing Team para conhecer um pouco de suas instalações e processos da produção de seu carro.<br/>
+          A Mack Racing agradece pela oportunidade e a ótima recepção dada pela Formula FEI Racing Team.<br/>
+          Muito obrigado pelo convite, Formula FEI. 🏎🏎
+        </p>
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 12 }}>
+          <img src={require('../assets/1761618271428.jpg')} alt="Visita FEI 1" style={{ width: 260, borderRadius: 10, boxShadow: '0 2px 12px rgba(0,0,0,0.10)' }} />
+          <img src={require('../assets/1761618271471.jpg')} alt="Visita FEI 2" style={{ width: 260, borderRadius: 10, boxShadow: '0 2px 12px rgba(0,0,0,0.10)' }} />
+          <img src={require('../assets/1761618271477.jpg')} alt="Visita FEI 3" style={{ width: 260, borderRadius: 10, boxShadow: '0 2px 12px rgba(0,0,0,0.10)' }} />
+        </div>
+      </div>
+
       <div style={{ background: 'rgba(155,28,49,0.08)', borderRadius: 12, padding: '1.2rem 1.5rem', maxWidth: 600, margin: '0 auto', textAlign: 'center', marginBottom: 24 }}>
         <h3 style={{ color: '#9b1c31', margin: 0, fontWeight: 700, fontSize: '1.2rem' }}>Venha fazer parte da Mack Racing!</h3>
         <p style={{ color: '#ddd', margin: '0.7rem 0 0.2rem', fontSize: '1.05rem' }}>

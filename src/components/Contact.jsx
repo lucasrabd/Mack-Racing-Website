@@ -86,7 +86,7 @@ const Contact = () => {
           <ul className="contact-list" style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '1.08rem', color: '#fff', lineHeight: 1.7 }}>
             <li style={{ marginBottom: 10 }}>
               <strong style={{ color: 'var(--color-primary)' }}>E-mail:</strong>{' '}
-              <a href="mailto:fsaemackracing@gmail.com" style={{ color: '#fff', fontWeight: 500 }}>fsaemackracing@gmail.com</a>
+              <a href="mailto:marketingmackracing@gmail.com" style={{ color: '#fff', fontWeight: 500 }}>marketingmackracing@gmail.com</a>
             </li>
             <li style={{ marginBottom: 10 }}>
               <strong style={{ color: 'var(--color-primary)' }}>Instagram:</strong>{' '}
@@ -94,7 +94,7 @@ const Contact = () => {
             </li>
             <li style={{ marginBottom: 10 }}>
               <strong style={{ color: 'var(--color-primary)' }}>LinkedIn:</strong>{' '}
-              <a href="https://www.linkedin.com/in/equipe-mack-racing" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', fontWeight: 500 }}>Equipe Mack Racing</a>
+              <a href="https://www.linkedin.com/company/equipe-mack-racing" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', fontWeight: 500 }}>Equipe Mack Racing</a>
             </li>
             <li style={{ marginBottom: 10 }}>
               <strong style={{ color: 'var(--color-primary)' }}>Endereço:</strong>{' '}

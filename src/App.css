@@ -471,12 +471,13 @@ section {
 .project-image {
   width: 100%;
   height: 100%;
-  background-image: url("./assets/project-bg.jpg");
+  background-image: url("./assets/chassi.png");
   background-size: cover;
   background-position: center;
   border-radius: 8px;
   min-height: 300px;
 }
+
 
 .project-details h3 {
   font-size: 1.75rem;
@@ -835,6 +836,7 @@ footer a:hover svg {
     display: block;
   }
 }
+
 /* === CORREÇÃO GLOBAL DAS FOTOS DA EQUIPE === */
 /* Levanta o rosto das fotos para evitar corte na testa */
 .avatar-img {
@@ -851,3 +853,78 @@ footer a:hover svg {
 .avatar-img[data-fix="low"] {
   object-position: 50% 25% !important;
 }
+
+/* Gallery styles for CarroPage */
+.gallery-hero {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.45);
+  margin-bottom: 1rem;
+}
+
+.gallery-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-hero-caption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.gallery-item {
+  background: rgba(255,255,255,0.02);
+  padding: 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-item:focus { outline: 2px solid var(--color-primary); }
+
+.gallery-item img,
+.gallery-item .gallery-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.gallery-video { width: 100%; height: auto; }
+
+.gallery-item figcaption {
+  margin-top: 0.6rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.video-item .gallery-video {
+  max-height: 320px;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-hero-caption {
+    font-size: 0.95rem;
+  }
+}
+
+.gallery-root { width: 100%; }
