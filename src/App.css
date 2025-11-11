@@ -835,3 +835,19 @@ footer a:hover svg {
     display: block;
   }
 }
+/* === CORREÇÃO GLOBAL DAS FOTOS DA EQUIPE === */
+/* Levanta o rosto das fotos para evitar corte na testa */
+.avatar-img {
+  object-fit: cover;
+  object-position: 50% 15% !important; /* Mostra mais do topo da cabeça */
+}
+
+/* Fotos que precisam subir MUITO */
+.avatar-img[data-fix="high"] {
+  object-position: 50% 5% !important;
+}
+
+/* Fotos que precisam subir MENOS */
+.avatar-img[data-fix="low"] {
+  object-position: 50% 25% !important;
+}
