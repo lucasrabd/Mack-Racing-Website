@@ -85,6 +85,8 @@ const MEMBERS = [
   { name: 'Raphael Ribeiro', role: 'Diretor', sector: 'Powertrain/Drivetrain', photo: Raphael_Ribeiro },
   { name: 'Gustavo Santos', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Gustavo_Santos },
   { name: 'Amanda Alvarenga', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Amanda_Alvarenga },
+  { name: 'Pedro D’Onofrio', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Pedro_DOnofrio },
+  { name: 'Thierry Caparroz', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Thierry_Caparroz },
   { name: 'Lara Fiorotto', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Lara_Fiorotto },
   { name: 'Vinicius Yazigi', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Vinicius_Yazigi },
   { name: 'Bruno Erazo', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Bruno_Erazo },
@@ -93,16 +95,17 @@ const MEMBERS = [
   // --- Suspensão ---
   { name: 'Marcelo Koichy', role: 'Diretor', sector: 'Suspensão e Freios', photo: Marcelo_Koichy },
   { name: 'Vitor Hashimoto', role: 'Membro', sector: 'Suspensão e Freios', photo: Vitor_Hashimoto },
+  { name: 'Thierry Caparroz', role: 'Membro', sector: 'Suspensão e Freios', photo: Thierry_Caparroz },
   { name: 'Lucas Polati', role: 'Membro', sector: 'Suspensão e Freios', photo: Lucas_Polati },
-  { name: 'Eduardo Romeo', role: 'Suplente', sector: 'Suspensão e Freios', photo: Eduardo_Romeo },
+  { name: 'Eduardo Romeo', role: 'Membro', sector: 'Suspensão e Freios', photo: Eduardo_Romeo },
 
   // --- Back Office ---
-  { name: 'Camila Figueiredo', role: 'Back Office', sector: 'Back Office', photo: Camila_Figueiredo },
-  { name: 'Victor Melchert', role: 'Back Office', sector: 'Back Office', photo: Victor_Melchert },
-  { name: 'Nickolas Saiki', role: 'Back Office', sector: 'Back Office', photo: Nickolas_Saiki },
-  { name: 'Ingrid Vitória', role: 'Back Office', sector: 'Back Office', photo: Ingrid_Vitoria },
-  { name: 'Ana Luiza Klaussen', role: 'Back Office', sector: 'Back Office', photo: Ana_Luiza_Klaussen },
-  { name: 'Giovanni Cecconello', role: 'Back Office', sector: 'Back Office', photo: Giovanni_Cecconello },
+  { name: 'Camila Figueiredo', role: 'Administração Geral', sector: 'Back Office', photo: Camila_Figueiredo },
+  { name: 'Victor Melchert', role: 'Marketing', sector: 'Back Office', photo: Victor_Melchert },
+  { name: 'Nickolas Saiki', role: 'Equipe Comercial', sector: 'Back Office', photo: Nickolas_Saiki },
+  { name: 'Ingrid Vitória', role: 'Markenting', sector: 'Back Office', photo: Ingrid_Vitoria },
+  { name: 'Ana Luiza Klaussen', role: 'Equipe Comercial', sector: 'Back Office', photo: Ana_Luiza_Klaussen },
+  { name: 'Giovanni Cecconello', role: 'Equipe Comercial', sector: 'Back Office', photo: Giovanni_Cecconello },
 ];
 
 const EquipePage = () => {
