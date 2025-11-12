@@ -4,27 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mack Racing | Fórmula SAE Mackenzie</title>
-  <!-- Favicon personalizado -->
-  <link rel="icon" type="image/jpeg" href="%PUBLIC_URL%/LOGO.jpeg" />
-  <!-- Open Graph (Facebook, WhatsApp, LinkedIn, etc) -->
-  <meta property="og:title" content="Mack Racing" />
-  <meta property="og:description" content="Equipe oficial de Fórmula SAE da Universidade Presbiteriana Mackenzie." />
-  <meta property="og:image" content="https://mackracing.com.br/LOGO.jpeg" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:url" content="https://mackracing.com.br/" />
-  <meta property="og:type" content="website" />
+    <title>Mack Racing | Fórmula SAE Mackenzie</title>
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mack Racing" />
-  <meta name="twitter:description" content="Equipe oficial de Fórmula SAE da Universidade Presbiteriana Mackenzie." />
-  <meta name="twitter:image" content="https://mackracing.com.br/LOGO.jpeg" />
+    <!-- Favicon personalizado -->
+    <link rel="icon" type="image/jpeg" href="%PUBLIC_URL%/LOGO.jpeg" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn, etc) -->
+    <meta property="og:title" content="Mack Racing" />
+    <meta property="og:description" content="Equipe oficial de Fórmula SAE da Universidade Presbiteriana Mackenzie." />
+    <meta property="og:image" content="https://mackracing.com.br/LOGO.jpeg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://mackracing.com.br/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mack Racing" />
+    <meta name="twitter:description" content="Equipe oficial de Fórmula SAE da Universidade Presbiteriana Mackenzie." />
+    <meta name="twitter:image" content="https://mackracing.com.br/LOGO.jpeg" />
   </head>
+
   <body>
     <noscript>Você precisa habilitar o JavaScript para visualizar este site.</noscript>
     <div id="root"></div>
+
+    <!-- =================== VLibras =================== -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+    <!-- =============================================== -->
   </body>
 </html>
