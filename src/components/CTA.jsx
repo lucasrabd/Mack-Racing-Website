@@ -1,32 +1,25 @@
 import React from 'react';
+import { go } from '../utils/navigate';
 
-
-const CTA = () => {
-  const navigateTo = (path) => {
-    window.history.pushState({}, "", path);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  };
-
-  return (
-    <section className="cta-section">
-      <h2>Faça Parte da Nossa Jornada</h2>
+const CTA = () => (
+  <section className="cta-section">
+    <div className="hero-stripes" aria-hidden="true"><i /><i /><i /></div>
+    <div className="cta-inner">
+      <h2>Faça parte da nossa jornada</h2>
       <p>
-        Venha acelerar conosco! Aqui, você encontra um ambiente de aprendizado, amizade e superação. Ajude a construir o primeiro carro de Fórmula SAE da Mackenzie e deixe sua marca na história. Sua paixão pode ser o diferencial que vai nos levar ainda mais longe!
+        Ajude a construir o primeiro carro de Fórmula SAE do Mackenzie e deixe
+        sua marca na história — na oficina, nos bastidores ou como parceiro do projeto.
       </p>
-      <div className="btn-group">
-        <a
-          href="/contato"
-          className="btn primary"
-          onClick={(e) => {
-            e.preventDefault();
-            navigateTo('/contato');
-          }}
-        >
-          Entre em Contato
-        </a>
+      <div className="cta-actions">
+        <button className="btn primary" onClick={() => go('/contato')}>
+          Quero fazer parte
+        </button>
+        <button className="btn secondary" onClick={() => go('/contato')}>
+          Patrocinar a equipe
+        </button>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default CTA;

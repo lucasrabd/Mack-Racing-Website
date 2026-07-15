@@ -1,18 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './components/NavBar.jsx';
 import Footer from './components/Footer.jsx';
+import Loader from './components/Loader.jsx';
 import HomePage from './pages/HomePage.jsx';
 import SobrePage from './pages/SobrePage.jsx';
 import EquipePage from './pages/EquipePage.jsx';
-import ProjetosPage from './pages/ProjetosPage.jsx';
-import CompeticaoPage from './pages/CompeticaoPage.jsx';
-import ContatoPage from './pages/ContatoPage.jsx';
-import Loader from './components/Loader.jsx';
 import CarroPage from './pages/CarroPage.jsx';
+import NoticiasPage from './pages/NoticiasPage.jsx';
+import ContatoPage from './pages/ContatoPage.jsx';
+
+/* Rotas: as antigas /projetos e /competicao continuam funcionando
+   como apelidos das novas páginas, para não quebrar links salvos. */
+const ROUTES = {
+  '/': { component: HomePage, title: 'Mack Racing | Fórmula SAE Mackenzie' },
+  '/sobre': { component: SobrePage, title: 'Sobre Nós | Mack Racing' },
+  '/equipe': { component: EquipePage, title: 'Equipe | Mack Racing' },
+  '/carro': { component: CarroPage, title: 'O Carro — MP4/1 | Mack Racing' },
+  '/projetos': { component: CarroPage, title: 'O Carro — MP4/1 | Mack Racing' },
+  '/noticias': { component: NoticiasPage, title: 'Notícias | Mack Racing' },
+  '/competicao': { component: NoticiasPage, title: 'Notícias | Mack Racing' },
+  '/contato': { component: ContatoPage, title: 'Contato | Mack Racing' },
+};
 
 function App() {
-  const [path, setPath] = useState(typeof window !== 'undefined' ? window.location.pathname : '/');
-  const [loading, setLoading] = useState(false);
+  const [path, setPath] = useState(
+    typeof window !== 'undefined' ? window.location.pathname : '/'
+  );
+  const [booting, setBooting] = useState(true);
 
   useEffect(() => {
     const handlePopState = () => setPath(window.location.pathname);
@@ -20,50 +34,29 @@ function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Simula carregamento de página
+  // Bandeirada só no primeiro carregamento — navegação interna é instantânea
   useEffect(() => {
-    setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 700);
+    const timer = setTimeout(() => setBooting(false), 900);
     return () => clearTimeout(timer);
-  }, [path]);
+  }, []);
 
-  const navigate = (to) => {
-    if (to !== path) {
-      window.history.pushState({}, '', to);
-      setPath(to);
-    }
-  };
+  const route = ROUTES[path] || ROUTES['/'];
 
-  let PageComponent;
-  switch (path) {
-    case '/sobre':
-      PageComponent = <SobrePage />;
-      break;
-    case '/equipe':
-      PageComponent = <EquipePage />;
-      break;
-    case '/projetos':
-      PageComponent = <ProjetosPage />;
-      break;
-    case '/competicao':
-      PageComponent = <CompeticaoPage />;
-      break;
-    case '/contato':
-      PageComponent = <ContatoPage />;
-      break;
-    case '/carro':
-      PageComponent = <CarroPage />;
-      break;
-    default:
-      PageComponent = <HomePage />;
-      break;
-  }
+  // Título da aba por página
+  useEffect(() => {
+    document.title = route.title;
+  }, [route]);
+
+  const Page = route.component;
 
   return (
     <>
-      <NavBar navigate={navigate} />
-      <main style={{ minHeight: '60vh', display: loading ? 'flex' : 'block', alignItems: 'center', justifyContent: 'center' }}>
-        {loading ? <Loader /> : PageComponent}
+      {booting && <Loader />}
+      <NavBar path={path} />
+      <main>
+        <div className="page-enter" key={path}>
+          <Page />
+        </div>
       </main>
       <Footer />
     </>

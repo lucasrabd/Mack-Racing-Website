@@ -1,33 +1,55 @@
 import React from 'react';
+import { go } from '../utils/navigate';
+import carRender from '../assets/carro-mp41.png';
 
-const Hero = () => {
-  const navigateTo = (path) => {
-    window.history.pushState({}, "", path);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  };
+const HUD = [
+  { label: 'FUNDAÇÃO', value: 'Est. 2018' },
+  { label: 'EQUIPE', value: '30+ membros' },
+  { label: 'CARRO', value: 'MP4/1 · ≤300 kg' },
+  { label: 'ALVO', value: 'FSAE Brasil 2026' },
+];
 
-  return (
-    <section id="home" className="hero">
-      <div className="hero-content">
-        <h1>Mack Racing</h1>
-        <p>
-          Onde a paixão pela engenharia acelera sonhos. Junte-se a nós e faça parte de uma equipe que transforma ideias em velocidade, inovação e conquistas!
+const Hero = () => (
+  <section id="home" className="hero">
+    <div className="hero-stripes" aria-hidden="true"><i /><i /><i /></div>
+
+    <div className="hero-inner">
+      <div className="hero-copy">
+        <span className="eyebrow">Fórmula SAE · Universidade Presbiteriana Mackenzie</span>
+        <h1 className="hero-title display">
+          Mack Racing
+          <em>MP4/1</em>
+        </h1>
+        <p className="hero-sub">
+          Da prancheta ao grid: projetamos, construímos e vamos colocar na pista
+          o primeiro carro de Fórmula SAE do Mackenzie.
         </p>
-        <div className="btn-group">
-          <a
-            href="/contato"
-            className="btn secondary"
-            onClick={(e) => {
-              e.preventDefault();
-              navigateTo('/contato');
-            }}
-          >
-            Entre em Contato
-          </a>
+        <div className="hero-actions">
+          <button className="btn primary" onClick={() => go('/carro')}>
+            Conheça o MP4/1
+          </button>
+          <button className="btn secondary" onClick={() => go('/contato')}>
+            Seja um patrocinador
+          </button>
         </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="hero-car">
+        <img src={carRender} alt="Render do carro MP4/1 da Mack Racing" />
+      </div>
+    </div>
+
+    <div className="hero-hud">
+      <div className="hero-hud-inner">
+        {HUD.map((h) => (
+          <div className="hud-item" key={h.label}>
+            <span className="mono">{h.label}</span>
+            <strong>{h.value}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Hero;

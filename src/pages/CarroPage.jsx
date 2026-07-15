@@ -1,16 +1,26 @@
 import React from 'react';
-import Gallery from '../components/Gallery';
-import galleryData from '../data/galleryData';
+import CarSpotlight from '../components/CarSpotlight.jsx';
+import SectionHead from '../components/SectionHead.jsx';
+import Gallery from '../components/Gallery.jsx';
+import CTA from '../components/CTA.jsx';
+import { GALLERY } from '../data/carData';
 
-const CarroPage = () => {
-  return (
-    <section id="carro" className="section carro-section" style={{ maxWidth: 900, margin: '0 auto', background: 'rgba(255,255,255,0.02)', borderRadius: 18, boxShadow: '0 2px 24px 0 rgba(0,0,0,0.10)', padding: '2.5rem 1.5rem', marginTop: 32, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h2 className="section-title" style={{ fontSize: '2.3rem', textAlign: 'center', marginBottom: '1.2rem', color: 'var(--color-primary, #9b1c31)' }}>MP4/1: Diário de Desenvolvimento</h2>
+const CarroPage = () => (
+  <>
+    <CarSpotlight showLink={false} />
 
-      <Gallery items={galleryData} />
-
+    <section id="diario" className="section">
+      <SectionHead
+        plate="LOG"
+        eyebrow="Diário de desenvolvimento"
+        title="MP4/1 na oficina"
+        lead="Registro do que acontece nos bastidores: chassi, powertrain, suspensão e cada etapa até o carro completo."
+      />
+      <Gallery items={GALLERY} />
     </section>
-  );
-};
+
+    <CTA />
+  </>
+);
 
 export default CarroPage;
