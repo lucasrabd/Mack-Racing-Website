@@ -21,7 +21,7 @@ const Contact = () => {
           from_name: form.nome,
           from_email: form.email,
           message: form.mensagem,
-          to_email: 'lucascaraboladb@gmail.com',
+          to_email: 'contato@mackracing.com.br',
         },
         'mbWuG1Zu2pIO5O1n8'
       )
