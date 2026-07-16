@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../assets/logo-negativo-ADAPTADO.png';
+import logo from '../assets/logo_vermelho_sem_fundo.png';
 import { go } from '../utils/navigate';
 
 const LINKS = [

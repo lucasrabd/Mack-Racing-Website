@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Lightbox from './Lightbox.jsx';
 import { SOCIALS } from '../data/newsData';
 import { LinkedInIcon, InstagramIcon, TikTokIcon } from '../utils/icons.jsx';
-import logoMini from '../assets/logo-negativo-ADAPTADO.png';
+import logoMini from '../assets/logo_vermelho_sem_fundo.png';
 
 const MONTHS = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
 

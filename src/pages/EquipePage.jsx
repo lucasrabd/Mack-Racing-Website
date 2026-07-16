@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import SectionHead from '../components/SectionHead.jsx';
+import Avatar from '../components/Avatar.jsx';
 import { MEMBERS, SECTORS, UNIQUE_COUNT } from '../data/teamData';
 
 const EquipePage = () => {
@@ -49,7 +50,7 @@ const EquipePage = () => {
       <div className="team-grid">
         {filtered.map((m, idx) => (
           <div className="team-card" key={`${m.name}-${idx}`}>
-            <img src={m.photo} alt={m.name} className="avatar-img" loading="lazy" />
+            <Avatar src={m.photo} alt={m.name} focus={m.focus} zoom={m.zoom} />
             <h3>{m.name}</h3>
             <p className="role">{m.role}</p>
             <span className="tag">{m.sector}</span>

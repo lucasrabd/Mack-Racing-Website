@@ -1,49 +1,16 @@
 /* ============================================================
    EQUIPE — Mack Racing
-   Para adicionar alguém: coloque a foto em assets/fotos/membros,
-   importe aqui e adicione o objeto na lista MEMBERS.
+   ARQUIVO GERADO pela área /admin em 15/07/2026, 22:23:43.
+   Para editar: rode o site em dev, acesse /admin, ajuste e exporte.
+
+   Campos:
+     name / role / sector
+     photoKey - chave em src/data/photoRegistry.js
+     focus    - { x, y } em % (posição da foto no círculo)
+     zoom     - escala da foto (1 = normal)
    ============================================================ */
 
-import Thierry_Caparroz from '../assets/fotos/membros/Thierry_Caparroz.png';
-import Igor_Garcez from '../assets/fotos/membros/Igor_Garcez.png';
-import Pedro_DOnofrio from '../assets/fotos/membros/Pedro_DOnofrio.png';
-
-import Joao_Pucciarello from '../assets/fotos/membros/Joao_Pucciarello.png';
-import Alexandre_Laurito from '../assets/fotos/membros/Alexandre_Laurito.png';
-import Kevin_Rodrigues from '../assets/fotos/membros/Kevin_Rodrigues.png';
-import Fernando_Mancini from '../assets/fotos/membros/Fernando_Mancini.png';
-
-import Felipe_Bessa from '../assets/fotos/membros/Felipe_Bessa.png';
-import Guilherme_Monsalles from '../assets/fotos/membros/Guilherme_Monsalles.png';
-import Ana_Luiza_Jorge from '../assets/fotos/membros/Ana_Luiza_Jorge.png';
-
-import Lucas_Bob from '../assets/fotos/membros/Lucas_Bob.png';
-import Luana_Pavanelli from '../assets/fotos/membros/Luana_Pavanelli.png';
-import Carlos_Henrique_Siqueira from '../assets/fotos/membros/Carlos_Henrique_Siqueira.png';
-import Marcos_Nishino from '../assets/fotos/membros/Marcos_Nishino.png';
-import Sophia_Betoni from '../assets/fotos/membros/Sophia_Betoni.png';
-import Alan_Phelipe from '../assets/fotos/membros/Alan_Phelipe.png';
-import Aynoah_Ferreira from '../assets/fotos/membros/Aynoa_Ferreira.png';
-
-import Raphael_Ribeiro from '../assets/fotos/membros/Raphael_Ribeiro.png';
-import Gustavo_Santos from '../assets/fotos/membros/Gustavo_Santos.png';
-import Amanda_Alvarenga from '../assets/fotos/membros/Amanda_Alvarenga.png';
-import Lara_Fiorotto from '../assets/fotos/membros/Lara_Fiorotto.png';
-import Vinicius_Yazigi from '../assets/fotos/membros/Vinicius_Yazigi.png';
-import Bruno_Erazo from '../assets/fotos/membros/Bruno_Erazo.png';
-import Gabriela_Blattner from '../assets/fotos/membros/Gabriela_Blattner.png';
-
-import Marcelo_Koichy from '../assets/fotos/membros/Marcelo_Koichy.png';
-import Vitor_Hashimoto from '../assets/fotos/membros/Vitor_Hashimoto.png';
-import Lucas_Polati from '../assets/fotos/membros/Lucas_Polati.png';
-import Eduardo_Romeo from '../assets/fotos/membros/Eduardo_Romeo.png';
-
-import Camila_Figueiredo from '../assets/fotos/membros/Camila_Figueiredo.png';
-import Victor_Melchert from '../assets/fotos/membros/Victor_Melchert.png';
-import Nickolas_Saiki from '../assets/fotos/membros/Nickolas_Saiki.png';
-import Ingrid_Vitoria from '../assets/fotos/membros/Ingrid_Vitoria.png';
-import Ana_Luiza_Klaussen from '../assets/fotos/membros/Ana_Luiza_Klaussen.png';
-import Giovanni_Cecconello from '../assets/fotos/membros/Giovanni_Cecconello.png';
+import { getPhoto } from './photoRegistry';
 
 export const SECTORS = [
   'Todos',
@@ -56,6 +23,9 @@ export const SECTORS = [
   'Back Office',
 ];
 
+/* Setores atribuíveis (sem "Todos", que é só filtro) */
+export const ASSIGNABLE_SECTORS = SECTORS.filter((s) => s !== 'Todos');
+
 export const SECTOR_DESCRIPTIONS = [
   { name: 'Chassis', desc: 'Projeto e fabricação do chassi, segurança e ergonomia.' },
   { name: 'Powertrain', desc: 'Motorização, transmissão e desempenho do conjunto propulsor.' },
@@ -65,58 +35,73 @@ export const SECTOR_DESCRIPTIONS = [
   { name: 'Back Office', desc: 'Captação de recursos, parcerias, marketing e gestão.' },
 ];
 
-export const MEMBERS = [
-  // --- Diretores ---
-  { name: 'Thierry Caparroz', role: 'Capitão e Chefe de Equipe', sector: 'Diretores', photo: Thierry_Caparroz },
-  { name: 'Igor Garcez', role: 'Manufatura e Chefe de Oficina', sector: 'Diretores', photo: Igor_Garcez },
-  { name: 'Pedro D\u2019Onofrio', role: 'Diretor de Projetos', sector: 'Diretores', photo: Pedro_DOnofrio },
+export const DEFAULT_FOCUS = { x: 50, y: 0 };
+export const DEFAULT_ZOOM = 1;
 
-  // --- Aero & Body ---
-  { name: 'João Pucciarello', role: 'Diretor', sector: 'Aero e Body', photo: Joao_Pucciarello },
-  { name: 'Alexandre Laurito', role: 'Membro', sector: 'Aero e Body', photo: Alexandre_Laurito },
-  { name: 'Kevin Rodrigues', role: 'Membro', sector: 'Aero e Body', photo: Kevin_Rodrigues },
-  { name: 'Fernando Mancini', role: 'Membro', sector: 'Aero e Body', photo: Fernando_Mancini },
+export const BASE_MEMBERS = [
+  // --- Diretores ---
+  { name: 'Igor Garcez', role: 'Manufatura e Chefe de Oficina', sector: 'Diretores', photoKey: 'Igor_Garcez', focus: { x: 48, y: 48 }, zoom: 1 },
+  { name: 'Pedro D’Onofrio', role: 'Diretor de Projetos', sector: 'Diretores', photoKey: 'Pedro_DOnofrio', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Victor Melchert', role: 'Capitão e Chefe de equipe', sector: 'Diretores', photoKey: 'Victor_Melchert', focus: { x: 21, y: 4 }, zoom: 1 },
+
+  // --- Aero e Body ---
+  { name: 'Alexandre Laurito', role: 'Diretor - CAD/Modelagem', sector: 'Aero e Body', photoKey: 'Alexandre_Laurito', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'João Pucciarello', role: 'Membro', sector: 'Aero e Body', photoKey: 'Joao_Pucciarello', focus: { x: 52, y: 66 }, zoom: 1 },
+  { name: 'Kevin Rodrigues', role: 'Membro', sector: 'Aero e Body', photoKey: 'Kevin_Rodrigues', focus: { x: 52, y: 82 }, zoom: 1 },
+  { name: 'Fernando Mancini', role: 'Membro', sector: 'Aero e Body', photoKey: 'Fernando_Mancini', focus: { x: 37, y: 0 }, zoom: 1 },
 
   // --- Chassis ---
-  { name: 'Felipe Bessa', role: 'Diretor', sector: 'Chassis', photo: Felipe_Bessa },
-  { name: 'Guilherme Monsalles', role: 'Membro', sector: 'Chassis', photo: Guilherme_Monsalles },
-  { name: 'Ana Luiza Jorge', role: 'Membro', sector: 'Chassis', photo: Ana_Luiza_Jorge },
+  { name: 'Guilherme Aquotti', role: 'Diretor de Chassis', sector: 'Chassis', photoKey: 'Guilherme_Monsalles', focus: { x: 44, y: 0 }, zoom: 1 },
+  { name: 'Felipe Bessa', role: 'Membro', sector: 'Chassis', photoKey: 'Felipe_Bessa', focus: { x: 52, y: 49 }, zoom: 1 },
+  { name: 'Ana Luiza Jorge', role: 'Membro', sector: 'Chassis', photoKey: 'Ana_Luiza_Jorge', focus: { x: 54, y: 100 }, zoom: 1 },
 
-  // --- Elétrica ---
-  { name: 'Lucas Bob', role: 'Diretor', sector: 'Elétrica/Eletrônica', photo: Lucas_Bob },
-  { name: 'Luana Pavanelli', role: 'Membro', sector: 'Elétrica/Eletrônica', photo: Luana_Pavanelli },
-  { name: 'Carlos Henrique Siqueira', role: 'Membro', sector: 'Elétrica/Eletrônica', photo: Carlos_Henrique_Siqueira },
-  { name: 'Marcos Nishino', role: 'Membro', sector: 'Elétrica/Eletrônica', photo: Marcos_Nishino },
-  { name: 'Sophia Betoni', role: 'Membro', sector: 'Elétrica/Eletrônica', photo: Sophia_Betoni },
-  { name: 'Alan Phelipe', role: 'Membro', sector: 'Elétrica/Eletrônica', photo: Alan_Phelipe },
-  { name: 'Aynoã Ferreira', role: 'Membro', sector: 'Elétrica/Eletrônica', photo: Aynoah_Ferreira },
+  // --- Elétrica/Eletrônica ---
+  { name: 'Lucas Bob', role: 'Diretor de Elétrica/Eletrônica - Projetista de Eletrônica', sector: 'Elétrica/Eletrônica', photoKey: 'Lucas_Bob', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Aynoã Ferreira', role: 'Membro', sector: 'Elétrica/Eletrônica', photoKey: 'Aynoa_Ferreira', focus: { x: 63, y: 21 }, zoom: 1 },
+  { name: 'Luana Pavanelli', role: 'Membro', sector: 'Elétrica/Eletrônica', photoKey: 'Luana_Pavanelli', focus: { x: 50, y: 100 }, zoom: 1 },
+  { name: 'Carlos Henrique Siqueira', role: 'Membro', sector: 'Elétrica/Eletrônica', photoKey: 'Carlos_Henrique_Siqueira', focus: { x: 42, y: 0 }, zoom: 1 },
+  { name: 'Marcos Nishino', role: 'Membro', sector: 'Elétrica/Eletrônica', photoKey: 'Marcos_Nishino', focus: { x: 59, y: 64 }, zoom: 1 },
+  { name: 'Sophia Betoni', role: 'Membro', sector: 'Elétrica/Eletrônica', photoKey: 'Sophia_Betoni', focus: { x: 57, y: 80 }, zoom: 1 },
+  { name: 'Alan Phelipe', role: 'Membro', sector: 'Elétrica/Eletrônica', photoKey: 'Alan_Phelipe', focus: { x: 51, y: 100 }, zoom: 1 },
 
-  // --- Powertrain ---
-  { name: 'Raphael Ribeiro', role: 'Diretor', sector: 'Powertrain/Drivetrain', photo: Raphael_Ribeiro },
-  { name: 'Gustavo Santos', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Gustavo_Santos },
-  { name: 'Amanda Alvarenga', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Amanda_Alvarenga },
-  { name: 'Pedro D\u2019Onofrio', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Pedro_DOnofrio },
-  { name: 'Thierry Caparroz', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Thierry_Caparroz },
-  { name: 'Lara Fiorotto', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Lara_Fiorotto },
-  { name: 'Vinicius Yazigi', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Vinicius_Yazigi },
-  { name: 'Bruno Erazo', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Bruno_Erazo },
-  { name: 'Gabriela Blattner', role: 'Membro', sector: 'Powertrain/Drivetrain', photo: Gabriela_Blattner },
+  // --- Powertrain/Drivetrain ---
+  { name: 'Raphael Ribeiro', role: 'Diretor de Powertrain - Sistemas de Lubrificação', sector: 'Powertrain/Drivetrain', photoKey: 'Raphael_Ribeiro', focus: { x: 56, y: 57 }, zoom: 1 },
+  { name: 'Pedro Neves', role: 'Membro', sector: 'Powertrain/Drivetrain', photoKey: 'Alan_Phelipe', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Gustavo Santos', role: 'Membro', sector: 'Powertrain/Drivetrain', photoKey: 'Gustavo_Santos', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Amanda Alvarenga', role: 'Membro', sector: 'Powertrain/Drivetrain', photoKey: 'Amanda_Alvarenga', focus: { x: 34, y: 51 }, zoom: 1 },
+  { name: 'Pedro D’Onofrio', role: 'Membro', sector: 'Powertrain/Drivetrain', photoKey: 'Pedro_DOnofrio', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Thierry Caparroz', role: 'Membro', sector: 'Powertrain/Drivetrain', photoKey: 'Thierry_Caparroz', focus: { x: 44, y: 70 }, zoom: 1 },
+  { name: 'Lara Fiorotto', role: 'Membro', sector: 'Powertrain/Drivetrain', photoKey: 'Lara_Fiorotto', focus: { x: 46, y: 90 }, zoom: 1 },
+  { name: 'Vinicius Yazigi', role: 'Membro', sector: 'Powertrain/Drivetrain', photoKey: 'Vinicius_Yazigi', focus: { x: 65, y: 100 }, zoom: 1 },
+  { name: 'Bruno Erazo', role: 'Membro', sector: 'Powertrain/Drivetrain', photoKey: 'Bruno_Erazo', focus: { x: 49, y: 0 }, zoom: 1.4 },
+  { name: 'Gabriela Blattner', role: 'Membro', sector: 'Powertrain/Drivetrain', photoKey: 'Gabriela_Blattner', focus: { x: 73, y: 73 }, zoom: 1 },
 
-  // --- Suspensão ---
-  { name: 'Marcelo Koichy', role: 'Diretor', sector: 'Suspensão e Freios', photo: Marcelo_Koichy },
-  { name: 'Vitor Hashimoto', role: 'Membro', sector: 'Suspensão e Freios', photo: Vitor_Hashimoto },
-  { name: 'Thierry Caparroz', role: 'Membro', sector: 'Suspensão e Freios', photo: Thierry_Caparroz },
-  { name: 'Lucas Polati', role: 'Membro', sector: 'Suspensão e Freios', photo: Lucas_Polati },
-  { name: 'Eduardo Romeo', role: 'Membro', sector: 'Suspensão e Freios', photo: Eduardo_Romeo },
+  // --- Suspensão e Freios ---
+  { name: 'Marcelo Koichy', role: 'Diretor de Suspensão e Freios - Dinâmica/CAD', sector: 'Suspensão e Freios', photoKey: 'Marcelo_Koichy', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Vitor Hashimoto', role: 'Membro', sector: 'Suspensão e Freios', photoKey: 'Vitor_Hashimoto', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Thierry Caparroz', role: 'Membro', sector: 'Suspensão e Freios', photoKey: 'Thierry_Caparroz', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Lucas Polati', role: 'Membro', sector: 'Suspensão e Freios', photoKey: 'Lucas_Polati', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Eduardo Romeo', role: 'Membro', sector: 'Suspensão e Freios', photoKey: 'Eduardo_Romeo', focus: { x: 50, y: 0 }, zoom: 1 },
 
   // --- Back Office ---
-  { name: 'Camila Figueiredo', role: 'Administração Geral', sector: 'Back Office', photo: Camila_Figueiredo },
-  { name: 'Victor Melchert', role: 'Marketing', sector: 'Back Office', photo: Victor_Melchert },
-  { name: 'Nickolas Saiki', role: 'Equipe Comercial', sector: 'Back Office', photo: Nickolas_Saiki },
-  { name: 'Ingrid Vitória', role: 'Marketing', sector: 'Back Office', photo: Ingrid_Vitoria },
-  { name: 'Ana Luiza Klaussen', role: 'Equipe Comercial', sector: 'Back Office', photo: Ana_Luiza_Klaussen },
-  { name: 'Giovanni Cecconello', role: 'Equipe Comercial', sector: 'Back Office', photo: Giovanni_Cecconello },
+  { name: 'Camila Figueiredo', role: 'Administração Geral', sector: 'Back Office', photoKey: 'Camila_Figueiredo', focus: { x: 50, y: 0 }, zoom: 1 },
+  { name: 'Nickolas Saiki', role: 'Equipe Comercial', sector: 'Back Office', photoKey: 'Nickolas_Saiki', focus: { x: 55, y: 100 }, zoom: 1 },
+  { name: 'Ingrid Vitória', role: 'Marketing', sector: 'Back Office', photoKey: 'Ingrid_Vitoria', focus: { x: 32, y: 0 }, zoom: 1 },
+  { name: 'Ana Luiza Klaussen', role: 'Equipe Comercial', sector: 'Back Office', photoKey: 'Ana_Luiza_Klaussen', focus: { x: 54, y: 100 }, zoom: 1 },
+  { name: 'Giovanni Cecconello', role: 'Equipe Comercial', sector: 'Back Office', photoKey: 'Giovanni_Cecconello', focus: { x: 59, y: 81 }, zoom: 1 },
 ];
 
+/* Normaliza: garante focus/zoom e resolve o asset da foto */
+export function hydrate(list) {
+  return list.map((m) => ({
+    ...m,
+    focus: m.focus || { ...DEFAULT_FOCUS },
+    zoom: typeof m.zoom === 'number' ? m.zoom : DEFAULT_ZOOM,
+    photo: getPhoto(m.photoKey),
+  }));
+}
+
+export const MEMBERS = hydrate(BASE_MEMBERS);
+
 /* Contagem de pessoas únicas (alguns membros atuam em mais de um setor) */
-export const UNIQUE_COUNT = new Set(MEMBERS.map((m) => m.name)).size;
+export const UNIQUE_COUNT = new Set(BASE_MEMBERS.map((m) => m.name)).size;

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/logo-negativo-ADAPTADO.png';
+import logo from '../assets/logo_vermelho_sem_fundo.png';
 import { go } from '../utils/navigate';
 import { SOCIALS } from '../data/newsData';
 import { InstagramIcon, LinkedInIcon, TikTokIcon } from '../utils/icons.jsx';

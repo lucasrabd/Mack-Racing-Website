@@ -8,6 +8,23 @@ import EquipePage from './pages/EquipePage.jsx';
 import CarroPage from './pages/CarroPage.jsx';
 import NoticiasPage from './pages/NoticiasPage.jsx';
 import ContatoPage from './pages/ContatoPage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
+
+/* ------------------------------------------------------------
+   ÁREA ADMIN — SOMENTE DESENVOLVIMENTO
+
+   O AdminPage é carregado por ./admin/loader. Existem dois
+   arquivos com esse nome:
+
+     admin/loader.js      → devolve o AdminPage   (usado em dev)
+     admin/loader.prod.js → devolve null          (usado no build)
+
+   O `npm run build` troca um pelo outro antes de compilar, então
+   o código do admin nunca entra no bundle publicado.
+   ------------------------------------------------------------ */
+import AdminPage from './admin/loader';
+
+const IS_DEV = process.env.NODE_ENV === 'development';
 
 /* Rotas: as antigas /projetos e /competicao continuam funcionando
    como apelidos das novas páginas, para não quebrar links salvos. */
@@ -20,6 +37,9 @@ const ROUTES = {
   '/noticias': { component: NoticiasPage, title: 'Notícias | Mack Racing' },
   '/competicao': { component: NoticiasPage, title: 'Notícias | Mack Racing' },
   '/contato': { component: ContatoPage, title: 'Contato | Mack Racing' },
+  ...(IS_DEV && AdminPage
+    ? { '/admin': { component: AdminPage, title: 'Admin | Mack Racing' } }
+    : {}),
 };
 
 function App() {
@@ -40,12 +60,27 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const route = ROUTES[path] || ROUTES['/'];
+  // Rota desconhecida → 404 (antes caía no Início silenciosamente)
+  const route = ROUTES[path] || { component: NotFoundPage, title: 'Página não encontrada | Mack Racing' };
 
   // Título da aba por página
   useEffect(() => {
     document.title = route.title;
   }, [route]);
+
+  // Páginas que não devem ser indexadas pelo Google
+  useEffect(() => {
+    const id = 'meta-robots-dynamic';
+    document.getElementById(id)?.remove();
+    const isPrivate = path === '/admin' || route.component === NotFoundPage;
+    if (isPrivate) {
+      const meta = document.createElement('meta');
+      meta.id = id;
+      meta.name = 'robots';
+      meta.content = 'noindex, nofollow';
+      document.head.appendChild(meta);
+    }
+  }, [path, route]);
 
   const Page = route.component;
 

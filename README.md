@@ -95,3 +95,53 @@ src/
 - Navegação por teclado com foco visível
 - `prefers-reduced-motion` respeitado (animações desligam)
 - Textos alternativos em todas as mídias
+
+## Área administrativa (`/admin`) — somente desenvolvimento
+
+Permite editar os membros da equipe (nome, cargo, setor) e ajustar o
+**enquadramento das fotos** (ponto focal + zoom), com preview igual ao site.
+
+```bash
+npm start          # http://localhost:3000/admin
+```
+
+### Trocar fotos
+
+No editor de cada membro há uma área de **Trocar a foto**: arraste a imagem
+(ou clique para escolher). Ela é redimensionada para **400x400 PNG** no próprio
+navegador e aparece na hora no preview.
+
+- **Substituir** (padrão): mantém o mesmo nome de arquivo, então a foto antiga
+  é sobrescrita ao extrair o ZIP.
+- **Criar arquivo novo**: gera um `.png` novo a partir do nome da pessoa
+  (`Aynoã D'Souza` -> `Aynoa_DSouza.png`) e mantém a antiga no repo.
+
+Fluxo de publicação:
+
+1. Edite em `/admin` (o rascunho salva sozinho no navegador)
+2. Clique em **Exportar ZIP**
+3. Extraia o ZIP **na raiz do repositório**, substituindo os arquivos
+4. `npm start` para conferir, `npm run build`, commit e deploy
+
+O ZIP traz `teamData.js`, o `photoRegistry.js` já regenerado com os imports
+das fotos novas, as próprias fotos e um `LEIA-ME.txt`. O botão
+**Só teamData.js** continua existindo para quando não há foto nova.
+
+> Nada é enviado para servidor nenhum: o redimensionamento usa `<canvas>` e o
+> ZIP é montado no navegador.
+
+### Por que o admin não vaza para produção
+
+`npm run build` roda `scripts/build-safe.js`, que troca `src/admin/loader.js`
+por `loader.prod.js` (exporta `null`) antes de compilar, desliga os sourcemaps
+e, no fim, **varre o bundle** procurando vestígios do admin — se achar algo,
+aborta o build. Resultado: no site publicado `/admin` cai no 404 e o código
+não está lá para ser lido.
+
+> `npm run build:raw` é o build sem essa proteção — use só para depurar.
+
+## Fotos dos membros
+
+1. Coloque o arquivo em `src/assets/fotos/membros/Nome_Sobrenome.png`
+2. Importe e adicione a chave em `src/data/photoRegistry.js`
+3. A foto aparece no seletor do `/admin`

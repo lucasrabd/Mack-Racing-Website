@@ -2,7 +2,7 @@ import React from 'react';
 import SectionHead from './SectionHead.jsx';
 import { go } from '../utils/navigate';
 import { SECTOR_DESCRIPTIONS, UNIQUE_COUNT } from '../data/teamData';
-import equipeFoto from '../assets/project-bg.jpg';
+import equipeFoto from '../assets/project-bg.png';
 
 const About = ({ compact = false }) => (
   <section id="sobre" className="section">
