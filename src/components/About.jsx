@@ -10,7 +10,6 @@ const About = ({ compact = false }) => (
 
     <div className="about-grid">
       <div className="about-media">
-        <span className="plate">MACK</span>
         <img src={equipeFoto} alt="Equipe Mack Racing reunida no campus do Mackenzie" />
       </div>
 

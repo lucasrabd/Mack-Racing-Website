@@ -4,7 +4,6 @@ import React from 'react';
 const SectionHead = ({ plate, eyebrow, title, lead }) => (
   <>
     <div className="section-head">
-      <span className="plate">{plate}</span>
       <span className="eyebrow">{eyebrow}</span>
       <span className="rule" aria-hidden="true" />
     </div>

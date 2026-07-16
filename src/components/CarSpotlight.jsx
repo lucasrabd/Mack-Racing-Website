@@ -14,7 +14,6 @@ const CarSpotlight = ({ showLink = true }) => (
 
     <div className="car-grid">
       <div className="car-visual">
-        <span className="plate">Nº 01</span>
         <img src={CAR.render} alt={`Render do ${CAR.name}`} />
       </div>
 

@@ -48,7 +48,7 @@ const NavBar = ({ path }) => {
   };
 
   return (
-    <header className="header">
+    <header className={`header${menuOpen ? ' menu-open' : ''}`}>
       <div
         className="logo-container"
         onClick={() => navTo('/')}
