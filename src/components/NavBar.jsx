@@ -22,10 +22,14 @@ const NavBar = ({ path }) => {
     return () => window.removeEventListener('resize', onResize);
   }, [menuOpen]);
 
-  // Bloqueia scroll com menu aberto
+  // Bloqueia scroll e esconde iframes (corrige z-index em mobile) com menu aberto
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    document.body.classList.toggle('nav-open', menuOpen);
+    return () => {
+      document.body.style.overflow = '';
+      document.body.classList.remove('nav-open');
+    };
   }, [menuOpen]);
 
   // Fecha com ESC
