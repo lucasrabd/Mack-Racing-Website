@@ -52,17 +52,28 @@ const NavBar = ({ path }) => {
   };
 
   return (
-    <header className={`header${menuOpen ? ' menu-open' : ''}`}>
-      <div
-        className="logo-container"
-        onClick={() => navTo('/')}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && navTo('/')}
-      >
-        <img src={logo} alt="Logo Mack Racing" className="logo" />
-        <span>Mack&nbsp;Racing</span>
-      </div>
+    <>
+      <header className={`header${menuOpen ? ' menu-open' : ''}`}>
+        <div
+          className="logo-container"
+          onClick={() => navTo('/')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && navTo('/')}
+        >
+          <img src={logo} alt="Logo Mack Racing" className="logo" />
+          <span>Mack&nbsp;Racing</span>
+        </div>
+
+        <button
+          className={`menu-btn ${menuOpen ? 'open' : ''}`}
+          aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span /><span /><span />
+        </button>
+      </header>
 
       <nav className={`nav ${menuOpen ? 'open' : ''}`} aria-label="Navegação principal">
         {LINKS.map((l) => (
@@ -78,16 +89,7 @@ const NavBar = ({ path }) => {
           Contato
         </button>
       </nav>
-
-      <button
-        className={`menu-btn ${menuOpen ? 'open' : ''}`}
-        aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-        aria-expanded={menuOpen}
-        onClick={() => setMenuOpen((v) => !v)}
-      >
-        <span /><span /><span />
-      </button>
-    </header>
+    </>
   );
 };
 
