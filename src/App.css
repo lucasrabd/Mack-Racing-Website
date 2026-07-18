@@ -205,7 +205,7 @@ button { font-family: inherit; }
     padding-top: var(--nav-h);
   }
   .nav.open { transform: translateX(0); }
-  .nav-link { font-size: 1.6rem; }
+  .nav-link { font-size: 1.6rem; color: var(--paper); }
   .nav-cta { margin-left: 0; margin-top: 1rem; }
   body.nav-open iframe { visibility: hidden; }
 }
