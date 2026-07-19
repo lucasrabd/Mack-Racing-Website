@@ -10,22 +10,6 @@ import NoticiasPage from './pages/NoticiasPage.jsx';
 import ContatoPage from './pages/ContatoPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
-/* ------------------------------------------------------------
-   ÁREA ADMIN — SOMENTE DESENVOLVIMENTO
-
-   O AdminPage é carregado por ./admin/loader. Existem dois
-   arquivos com esse nome:
-
-     admin/loader.js      → devolve o AdminPage   (usado em dev)
-     admin/loader.prod.js → devolve null          (usado no build)
-
-   O `npm run build` troca um pelo outro antes de compilar, então
-   o código do admin nunca entra no bundle publicado.
-   ------------------------------------------------------------ */
-import AdminPage from './admin/loader';
-
-const IS_DEV = process.env.NODE_ENV === 'development';
-
 /* Rotas: as antigas /projetos e /competicao continuam funcionando
    como apelidos das novas páginas, para não quebrar links salvos. */
 const ROUTES = {
@@ -37,9 +21,6 @@ const ROUTES = {
   '/noticias': { component: NoticiasPage, title: 'Notícias | Mack Racing' },
   '/competicao': { component: NoticiasPage, title: 'Notícias | Mack Racing' },
   '/contato': { component: ContatoPage, title: 'Contato | Mack Racing' },
-  ...(IS_DEV && AdminPage
-    ? { '/admin': { component: AdminPage, title: 'Admin | Mack Racing' } }
-    : {}),
 };
 
 function App() {
@@ -72,8 +53,7 @@ function App() {
   useEffect(() => {
     const id = 'meta-robots-dynamic';
     document.getElementById(id)?.remove();
-    const isPrivate = path === '/admin' || route.component === NotFoundPage;
-    if (isPrivate) {
+    if (route.component === NotFoundPage) {
       const meta = document.createElement('meta');
       meta.id = id;
       meta.name = 'robots';

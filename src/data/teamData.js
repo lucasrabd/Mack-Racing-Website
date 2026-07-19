@@ -1,7 +1,5 @@
 /* ============================================================
    EQUIPE — Mack Racing
-   ARQUIVO GERADO pela área /admin em 15/07/2026, 22:23:43.
-   Para editar: rode o site em dev, acesse /admin, ajuste e exporte.
 
    Campos:
      name / role / sector
@@ -23,9 +21,6 @@ export const SECTORS = [
   'Back Office',
 ];
 
-/* Setores atribuíveis (sem "Todos", que é só filtro) */
-export const ASSIGNABLE_SECTORS = SECTORS.filter((s) => s !== 'Todos');
-
 export const SECTOR_DESCRIPTIONS = [
   { name: 'Chassis', desc: 'Projeto e fabricação do chassi, segurança e ergonomia.' },
   { name: 'Powertrain', desc: 'Motorização, transmissão e desempenho do conjunto propulsor.' },
@@ -35,10 +30,10 @@ export const SECTOR_DESCRIPTIONS = [
   { name: 'Back Office', desc: 'Captação de recursos, parcerias, marketing e gestão.' },
 ];
 
-export const DEFAULT_FOCUS = { x: 50, y: 0 };
-export const DEFAULT_ZOOM = 1;
+const DEFAULT_FOCUS = { x: 50, y: 0 };
+const DEFAULT_ZOOM = 1;
 
-export const BASE_MEMBERS = [
+const BASE_MEMBERS = [
   // --- Diretores ---
   { name: 'Igor Garcez', role: 'Manufatura e Chefe de Oficina', sector: 'Diretores', photoKey: 'Igor_Garcez', focus: { x: 48, y: 48 }, zoom: 1 },
   { name: 'Pedro D’Onofrio', role: 'Diretor de Projetos', sector: 'Diretores', photoKey: 'Pedro_DOnofrio', focus: { x: 50, y: 0 }, zoom: 1 },
@@ -92,7 +87,7 @@ export const BASE_MEMBERS = [
 ];
 
 /* Normaliza: garante focus/zoom e resolve o asset da foto */
-export function hydrate(list) {
+function hydrate(list) {
   return list.map((m) => ({
     ...m,
     focus: m.focus || { ...DEFAULT_FOCUS },

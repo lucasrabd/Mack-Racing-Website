@@ -1,1 +1,10 @@
 node_modules
+
+# Admin (ferramenta local — não vai pro repositório)
+src/admin/
+src/admin.css
+src/pages/AdminPage.jsx
+src/utils/exportTeamData.js
+src/utils/photoProcess.js
+src/utils/zip.js
+src/utils/buildPhotoRegistry.js
